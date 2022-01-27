@@ -3,13 +3,21 @@ malloc intercepter is a library to intercept all malloc calls in an application 
 
 ## Setup
 The project can be compiled into a shared library file using:
-```gcc malloc.c -shared -o malloc.so -fPIC -ldl```
+```
+gcc malloc.c -shared -o malloc.so -fPIC -ldl
+```
 This can be used by either running:
-```LD_PRELOAD=/path/to/malloc.so seq 1 5```
+```
+LD_PRELOAD=/path/to/malloc.so seq 1 5
+```
 or copying the file malloc.so to /usr/lib and running
-```ldconfig -n /usr/lib```
+```
+ldconfig -n /usr/lib
+```
 to install the new library enabling the library to be used by calling:
-```LD_PRELOAD=malloc.so seq 1 5```
+```
+LD_PRELOAD=malloc.so seq 1 5
+```
 
 ## Example
 Using the library to intercept malloc calls for the program `seq 1 5` will produce an output similar to this:
