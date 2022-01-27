@@ -6,11 +6,11 @@ The project can be compiled into a shared library file using:
 ```
 gcc malloc.c -shared -o malloc.so -fPIC -ldl
 ```
-This can be used by either running:
+The generated library file `malloc.so` can be used by either running
 ```
-LD_PRELOAD=/path/to/malloc.so seq 1 5
+LD_PRELOAD=/path/to/malloc.so program_name args
 ```
-or copying the file malloc.so to /usr/lib and running
+where `program_name args` is the aplliaction and its arguments for which you want the malloc calls to be intercepted. The alternative is to copy the file malloc.so to /usr/lib and run
 ```
 ldconfig -n /usr/lib
 ```
